@@ -6,31 +6,32 @@ using UsenetApi.Models;
 namespace UsenetApi.Controllers
 {
     [Route("api/[controller]")]
-    public class GroupsController : ControllerBase
+    public class ArticlesController : ControllerBase
     {
         private readonly UsenetContext _context;
 
-        public GroupsController(UsenetContext context)
+        public ArticlesController(UsenetContext context)
         {
             _context = context;
 
-            if (_context.Groups.Count() == 0)
+            if (_context.Articles.Count() == 0)
             {
-                _context.Groups.Add(new Group { Name = "Item1" });
+                _context.Articles.Add(new Article { Subject = "foo" });
+                _context.Articles.Add(new Article { Subject = "bar" });
                 _context.SaveChanges();
             }
         }     
 
         [HttpGet]
-        public List<Group> GetAll()
+        public List<Article> GetAll()
         {
-            return _context.Groups.ToList();
+            return _context.Articles.ToList();
         }
 
-        [HttpGet("{id}", Name = "GetGroup")]
+        [HttpGet("{id}", Name = "GetArticle")]
         public IActionResult GetById(int id)
         {
-            var item = _context.Groups.Find(id);
+            var item = _context.Articles.Find(id);
             if (item == null)
             {
                 return NotFound();

@@ -25,8 +25,8 @@ namespace UsenetApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UsenetDbContext>(opt => 
-                opt.UseInMemoryDatabase("GroupList"));
+            services.AddDbContext<UsenetContext>(opt => 
+                opt.UseInMemoryDatabase("UsenetList"));
             services.AddMvc();
         }
 

@@ -1,2 +1,2 @@
 # UsenetApi
-ASP.NET Core Web API for Usenet Articles
+ASP.NET Core Web API for Usenet content
