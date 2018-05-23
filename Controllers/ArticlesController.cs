@@ -16,14 +16,14 @@ namespace UsenetApi.Controllers
 
             if (_context.Articles.Count() == 0)
             {
-                _context.Articles.Add(new Article { Subject = "foo" });
-                _context.Articles.Add(new Article { Subject = "bar" });
+                _context.Articles.Add(new Article { GroupId = 1, Subject = "foo" });
+                _context.Articles.Add(new Article { GroupId = 1, Subject = "bar" });
                 _context.SaveChanges();
             }
         }     
 
         [HttpGet]
-        public List<Article> GetAll()
+        public ICollection<Article> GetAll()
         {
             return _context.Articles.ToList();
         }

@@ -8,5 +8,7 @@ namespace UsenetApi.Models
         public int ArticleId { get; set; }
         public string Subject { get; set; }
 
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
     }
 }

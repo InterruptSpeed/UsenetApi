@@ -16,7 +16,8 @@ namespace UsenetApi.Controllers
 
             if (_context.Groups.Count() == 0)
             {
-                _context.Groups.Add(new Group { Name = "Item1" });
+                _context.Groups.Add(new Group { Name = "Group1" });
+                _context.Groups.Add(new Group { Name = "Group2" });
                 _context.SaveChanges();
             }
         }     

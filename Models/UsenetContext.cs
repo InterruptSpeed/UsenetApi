@@ -22,6 +22,11 @@ namespace UsenetApi.Models
 
             modelBuilder.Entity<Article>().ToTable("Articles", "UsenetSchema");
 
+            modelBuilder.Entity<Article>()
+                .HasOne(p => p.Group)
+                .WithMany(b => b.Articles)
+                .HasForeignKey(b => b.GroupId);
+
             modelBuilder.Entity<Article>(entity =>
             {
                 entity.Property(e => e.Subject).IsRequired();
